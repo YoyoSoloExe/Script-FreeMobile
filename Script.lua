@@ -1,133 +1,167 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "T00ls6 HUB| FREE Version MOBILE", HidePremium = false, SaveConfig = true, IntroEnabled = false })
+local Player = game.Players.LocalPlayer
+local Window = OrionLib:MakeWindow({Name = "Key system", HidePremium = false, SaveConfig = true, IntroEnabled = false })
+
+OrionLib:MakeNotification({
+	Name = "Login!",
+	Content = "you are logged in as"..Player.Name..".",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+_G.Key = "T00ls6 HUB paid Ufldyteqd"
+_G.KeyInput = "string"
+
+function MakeScriptHub()
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("T00ls6 HUB PAID VERSION", "Sentinel")
+
+--MAIN
+local Main = Window:NewTab("Main")
+local LockAimSection = Main:NewSection("LockAim")
+
+
+LockAimSection:NewButton("Lock aim", "Avoir le lock aim", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/YoyoSoloExe/AIM-LOCK/main/aim%20lock'))()
+end)
+
+LockAimSection:NewToggle("Super-Humain", "Go fast and jump high", function(state)
+    if state then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 200
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+    else
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    end
+end)
+
+LockAimSection:NewButton("Infinit yield", "Avoir les command admin", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+
+--ESP
+local ESP = Window:NewTab("ESP")
+local ESPSection = ESP:NewSection("ESP")
+
+ESPSection:NewButton("ESP", "Avoir le esp", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/YoyoSoloExe/UNHAMED-ESP/main/ESP'))()
+end)
+
+--LOCAL PLAYER
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
+
+PlayerSection:NewSlider("WalkSpeed", "Courir plus vite !!", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewSlider("Super Saut", "Sauter plus haut", 1000, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+PlayerSection:NewButton("Reset WS/JP", "Reset WS/JP", function()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+
+--All Games
+local AllGames = Window:NewTab("All games")
+local AllGamesSection = AllGames:NewSection("All games script")
+
+AllGamesSection:NewButton("Brookhaven rp", "Avoir le script brookhaven", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/IceMael7/NewIceHub/main/Brookhaven'))()
+end)
+
+AllGamesSection:NewButton("Blox Fruit", "Avoir le script Blox fruit", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ThunderZ-HUB/HUB/main/Script"))() 
+end)
+
+AllGamesSection:NewButton("murder mystery 2", "Avoir le script mm2", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/VEZ2/NEVAHUB/main/2'))()
+end)
+
+--invisible
+local invisible = Window:NewTab("Invisible")
+local invisibleSection = invisible:NewSection("invisible script")
+
+invisibleSection:NewButton("invisible", "etre invisible", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/kLF5E3tf'))() 
+end)
+
+
+--Btool
+local Btool = Window:NewTab("Btool")
+local BtoolSection = Btool:NewSection("Btool")
+
+BtoolSection:NewButton("Btool", "avoir Btool", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/FBKJTUyw'))()
+end)
+
+--fly
+local Fly = Window:NewTab("Fly")
+local FlySection = Fly:NewSection("Fly")
+
+FlySection:NewButton("Fly (X)", "pouvoir voler", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/fPtT2Q1F'))()
+end)
+
+--CONCTACT
+local CONCTACT = Window:NewTab("CONCTACT")
+local CONCTACTSection = CONCTACT:NewSection("CONCTACT")
+
+CONCTACTSection:NewLabel("T00ls6")
+end
+
+function CorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "Correct Key",
+        Content = "Vous avez saisi la bonne clé",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+function IncorrectKeyNotification()
+    OrionLib:MakeNotification({
+        Name = "Incorrect Key",
+        Content = "Vous avez saisi la mauvaise clé",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
 
 local Tab = Window:MakeTab({
-	Name = "Main",
+	Name = "Key",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-local Section = Tab:AddSection({
-	Name = "Lock Aim"
-})
-
-Tab:AddButton({
-	Name = "Lock Aim",
-	Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/YoyoSoloExe/AIM-LOCK/main/aim%20lock'))()
-  	end    
-})
-
-local Section = Tab:AddSection({
-	Name = "Super-Humain"
-})
-
-Tab:AddSlider({
-	Name = "Super-Humain",
-	Min = 0,
-	Max = 500,
-	Default = 5,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "WalkSpeed",
+Tab:AddTextbox({
+	Name = "Enter Key: ",
+	Default = "Enter key: ",
+	TextDisappear = true,
 	Callback = function(Value)
-		print(Value)
-	end    
-})
-
-local Section = Tab:AddSection({
-	Name = "Infinit Yield"
+		_G.KeyInput = Value
+        
+	end	  
 })
 
 Tab:AddButton({
-	Name = "Infinit Yield",
+	Name = "Check Key!",
 	Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+      		if _G.KeyInput == _G.Key then
+            MakeScriptHub()
+            CorrectKeyNotification()
+            else
+                IncorrectKeyNotification()
+            end
   	end    
-})
-
-local Tab = Window:MakeTab({
-	Name = "ESP",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local Section = Tab:AddSection({
-	Name = "ESP"
 })
 
 Tab:AddButton({
-	Name = "ESP",
+	Name = "Get key",
 	Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/YoyoSoloExe/UNHAMED-ESP/main/ESP'))()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/YoyoSoloExe/Get-key-bypass/main/dont%20opened'))()
   	end    
 })
-
-local Tab = Window:MakeTab({
-	Name = "All games",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local Section = Tab:AddSection({
-	Name = "Brookhaven"
-})
-
-Tab:AddButton({
-	Name = "Brookhaven rp",
-	Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/JuninhoOGado/ScriptsSite/main/Script148"))()
-  	end    
-})
-
-local Section = Tab:AddSection({
-	Name = "Blox Fruit"
-})
-
-Tab:AddButton({
-	Name = "Blox Fruit",
-	Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Domadicoof/Domadicoof/main/Domadichub/NottoGay/Start.ranscript'))()
-  	end    
-})
-
-local Section = Tab:AddSection({
-	Name = "Arsenal"
-})
-
-Tab:AddButton({
-	Name = "Arsenal",
-	Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ZinityDrops/OwlHubLink/master/OwlHubBack.lua"))();
-  	end    
-})
-
-local Tab = Window:MakeTab({
-	Name = "Fly",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local Section = Tab:AddSection({
-	Name = "Fly"
-})
-
-Tab:AddButton({
-	Name = "Fly (X)",
-	Callback = function()
-        loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
-  	end    
-})
-
-
-local Tab = Window:MakeTab({
-	Name = "CONTACT",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-local Section = Tab:AddSection({
-	Name = "CONTACT SUPPORT"
-})
-
-Tab:AddLabel("Discord: T00ls6")
